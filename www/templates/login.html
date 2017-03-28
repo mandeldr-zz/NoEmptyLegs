@@ -1,0 +1,41 @@
+<ion-view view-title="Welcome">
+  <div style="top: 0px; margin-left: 0px; width: calc(100% + 20px);">
+  	<img src="img/login.jpg" style="position: absolute; display: block; width: 150%; height: 40%">
+  </div>
+  <ion-nav-bar class="bar-clear">
+  	<ion-nav-back-button></ion-nav-back-button>
+  	<ion-nav-buttons side="left">
+  		<button class="button button-icon ion-navicon" menu-toggle="left"></button>
+  	</ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+  <div style="margin-top: 70%">
+  </div>
+  <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+      <md-input-container style="margin: 10px auto;">
+        <label>Username</label>
+        <input ng-model="user.username">
+      </md-input-container>
+  </div>
+  <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+      <md-input-container style="margin: 10px auto;">
+        <label>Password</label>
+        <input ng-model="user.password" type="password">
+      </md-input-container>
+  </div>
+   <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+	  <md-switch class="md-primary" style="direction: rtl; margin: 10px auto;" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remeber Me  	    
+	  </md-switch>
+   </div>
+   <div style="text-align: center;">
+   	<md-button class="md-raised md-primary">Sign In</md-button>
+   </div>
+  </ion-content>
+</ion-view>
