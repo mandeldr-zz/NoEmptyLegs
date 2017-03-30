@@ -33,21 +33,33 @@
     <div style="display: flex;
   justify-content: center;
   align-items: center;">
-    <md-switch ng-model="searchByDate" ng-change="toggleDateSelector()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Date        
+    <md-switch ng-model="searchByPrice" ng-change="togglePriceSelector()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Price        
     </md-switch>
    </div>
    
-  <div ng-show="searchByDate" align="center" style="text-align: center; width: 100%;">
+  <div ng-show="searchByPrice" align="center" style="text-align: center; width: 100%;">
         <table style="border-collapse:collapse; width: 100%;">
             <tr style="text-align: center;">
                 <div style="text-align: center; padding: 15px 15px 15px 15px;">
-                    <h4>Departure Date</h4>
-                    <md-datepicker ng-model="departureDate" md-placeholder="Enter date"></md-datepicker>
+                    <md-slider-container>
+                      <span>Min Price</span>
+                      <md-slider flex min="0" max="20000" ng-model="minPrice" class="md-primary">
+                      </md-slider>
+                      <md-input-container>
+                        <input flex type="number" step="100" ng-model="minPrice" >
+                      </md-input-container>
+                    </md-slider-container>
                 </div>
                 <div style="text-align: center; padding: 15px 15px 15px 15px;">
-                    <h4>Return Date</h4>
-                    <md-datepicker ng-model="returnDate" md-placeholder="Enter date"></md-datepicker>
+                    <md-slider-container>
+                      <span>Min Price</span>
+                      <md-slider flex min="0" max="20000" ng-model="maxPrice" class="md-primary">
+                      </md-slider>
+                      <md-input-container>
+                        <input flex type="number" step="100" ng-model="maxPrice">
+                      </md-input-container>
+                    </md-slider-container>
                 </div>
             </tr>
         </table>
