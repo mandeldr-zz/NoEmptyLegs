@@ -36,6 +36,7 @@ angular.module('user.controller', [])
               $scope.user.username = '';
               $scope.user.password = '';
             }
+            $scope.logout();
             break;
           }
         }
@@ -50,7 +51,9 @@ angular.module('user.controller', [])
     user.username = ''
     user.password = ''
     user.userType = ''
-    console.log(user);
+    //store on root scope for all controllers
+    $rootScope.user = user;
+    console.log($rootScope.user);
   }
 
   $scope.remember = function(){
