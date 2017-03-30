@@ -36,7 +36,6 @@ angular.module('user.controller', [])
               $scope.user.username = '';
               $scope.user.password = '';
             }
-            $scope.logout();
             break;
           }
         }
