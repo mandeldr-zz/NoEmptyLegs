@@ -4,6 +4,4 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope, $stateParams) {
-  console.log("Hello World")
-});
+

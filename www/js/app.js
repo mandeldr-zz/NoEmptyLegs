@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.controllers', 'starter.services'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.controllers', 'starter.services', 'user.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,8 +42,8 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.controllers', 'st
     url: '/login',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/login.html',
-        controller: 'LoginCtrl'
+        templateUrl: 'classes/user/login.html',
+        controller: 'UserCtrl'
       }
     }
   });
