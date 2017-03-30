@@ -30,34 +30,21 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.controllers', 'st
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
+  $stateProvider  
 
-    .state('noEmptyLegs', {
-    url: '/side-menu',
-    templateUrl: 'templates/noEmptyLegs.html',
-    controller: 'noEmptyLegsCtrl'
-  })    
-
-    .state('noEmptyLegs.login', {
+    .state('login', {
     url: '/login',
-    views: {
-      'side-menu21': {
-        templateUrl: 'classes/user/login.html',
-        controller: 'UserCtrl'
-      }
-    }
+    templateUrl: 'classes/user/login.html',
+    controller: 'UserCtrl'
+      
   })
-    .state('noEmptyLegs.home', {
+    .state('home', {
     url: '/home',
-    views: {
-      'side-menu21': {
-        templateUrl: 'classes/home/home.html',
-        controller: 'HomeCtrl'
-      }
-    }
+    templateUrl: 'classes/home/home.html',
+    controller: 'HomeCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('side-menu/login');
+  $urlRouterProvider.otherwise('/login');
 
 });

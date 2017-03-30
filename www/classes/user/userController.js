@@ -36,7 +36,7 @@ angular.module('user.controller', [])
               $scope.user.username = '';
               $scope.user.password = '';
             }
-            $location.path('side-menu/home'); 
+            $location.path('/home'); 
             console.log($rootScope.user);
             break;
           }

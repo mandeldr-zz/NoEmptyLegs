@@ -10,7 +10,7 @@ angular.module('home.controller', [])
     //store on root scope for all controllers
     $rootScope.user = user;
     console.log($rootScope.user);
-    $location.path('side-menu/login'); 
+    $location.path('/login'); 
   }
 
 });
