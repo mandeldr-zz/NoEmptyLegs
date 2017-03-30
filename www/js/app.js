@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.controllers', 'starter.services', 'user.controller', 'home.controller'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
