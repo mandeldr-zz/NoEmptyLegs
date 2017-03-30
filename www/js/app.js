@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -47,6 +47,11 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.
     url: '/home',
     templateUrl: 'classes/home/home.html',
     controller: 'HomeCtrl'
+  })
+    .state('signUp', {
+      url:'/signUp',
+      templateUrl: 'classes/signUp/signUp.html',
+      controller: 'signUpCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
