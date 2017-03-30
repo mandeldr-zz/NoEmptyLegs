@@ -6,6 +6,51 @@
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content scroll="true">
-    
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="searchByDate" ng-change="toggleDateSelector()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Date        
+    </md-switch>
+   </div>
+   
+  <div ng-show="searchByDate" align="center" style="text-align: center; width: 100%;">
+        <table style="border-collapse:collapse; width: 100%;">
+            <tr style="text-align: center;">
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <h4>Departure Date</h4>
+                    <md-datepicker ng-model="departureDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <h4>Return Date</h4>
+                    <md-datepicker ng-model="returnDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </tr>
+        </table>
+    </div>
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="searchByDate" ng-change="toggleDateSelector()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Date        
+    </md-switch>
+   </div>
+   
+  <div ng-show="searchByDate" align="center" style="text-align: center; width: 100%;">
+        <table style="border-collapse:collapse; width: 100%;">
+            <tr style="text-align: center;">
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <h4>Departure Date</h4>
+                    <md-datepicker ng-model="departureDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <h4>Return Date</h4>
+                    <md-datepicker ng-model="returnDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </tr>
+        </table>
+    </div>
   </ion-content>
 </ion-view>
