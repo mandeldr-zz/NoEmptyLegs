@@ -1,6 +1,6 @@
 angular.module('user.controller', [])
 
-.controller('UserCtrl', function($scope, $stateParams, $rootScope) {
+.controller('UserCtrl', function($scope, $stateParams, $rootScope, $location) {
   //user schema
   var user = {id: '', username: '', password: '', userType: ''};
   //owner
@@ -36,6 +36,8 @@ angular.module('user.controller', [])
               $scope.user.username = '';
               $scope.user.password = '';
             }
+            $location.path('side-menu/home'); 
+            console.log($rootScope.user);
             break;
           }
         }
