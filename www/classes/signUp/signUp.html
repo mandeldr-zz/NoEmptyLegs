@@ -7,5 +7,61 @@
   </ion-nav-bar>
   <ion-content scroll="true">
 
+<md-content layout-padding>
+    <div>
+      <form name="userForm">
+
+              <md-input-container>
+          <label>Title</label>
+          <md-select ng-model="ctrl.userState">
+            <md-option><em>None</em></md-option>
+            <md-option ng-repeat="state in ctrl.states" ng-value="state.abbrev" ng-disabled="$index === 1">
+              {{state.abbrev}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </md-card-content>
+  </md-card>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Last Name</label>
+            <input ng-model="theMax">
+          </md-input-container>
+        </div>
+
+        <md-input-container>
+        <label>Email</label>
+        <input ng-model="user.email" type="email">
+      	</md-input-container>
+
+      	<md-input-container>
+        <label>Username</label>
+        <input ng-model="user.email" type="email">
+      	</md-input-container>
+
+      	<md-input-container>
+        <label>Password</label>
+        <input ng-model="user.email" type="email">
+      	</md-input-container>
+
+      	<md-input-container>
+        <label>Verify Password</label>
+        <input ng-model="user.email" type="email">
+      	</md-input-container>
+      </form>
+    </div>
+  </md-content>
+
+     <div style="text-align: center; padding-top: 5%">
+   	<md-button class="md-raised md-primary" ng-click="">Create Account</md-button>
+   </div>
+
   </ion-content>
 </ion-view>
