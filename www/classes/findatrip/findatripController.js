@@ -51,7 +51,7 @@ angular.module('findatrip.controller', [])
   function selectedItemChange(item) {
     $log.info('Item changed to ' + JSON.stringify(item));
   }
-
+  
   /**
    * Build `states` list of key/value pairs
    */
