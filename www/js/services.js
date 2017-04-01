@@ -2,7 +2,7 @@ angular.module('starter.services', [])
 
 .service('flightFilter', function() {
     this.queryFlightList = function (query) {
-        console.log(query);
+        console.log(query);    
     }
 })
 

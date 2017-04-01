@@ -12,7 +12,7 @@ angular.module('findatrip.controller', [])
   $scope.minPrice = 0;
   $scope.maxPrice = 0;
 
-  //search by destination scope variables
+  //search by destination scope variables  
   $scope.searchByDestination = false;
   $scope.simulateQuery = false;
   $scope.isDisabled    = false;
