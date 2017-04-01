@@ -3,30 +3,40 @@ angular.module('findatrip.controller', [])
 .controller('FindCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log) {
 
 
-
+  //date selector scope variables
   $scope.searchByDate = false;
   $scope.departureDate = new Date();
   $scope.returnDate = new Date();
 
+  //search by price scope variables
   $scope.searchByPrice = false;
   $scope.minPrice = 0;
   $scope.maxPrice = 0;
 
+  //search by destination scope variables
   $scope.searchByDestination = false;
- 
-
- 
-
   $scope.simulateQuery = false;
   $scope.isDisabled    = false;
-
-  // list of `state` value/display objects
-  
   $scope.querySearch   = querySearch;
   $scope.selectedItemChange = selectedItemChange;
   $scope.searchTextChange   = searchTextChange;
-
   $scope.newState = newState;
+  $scope.destinationAirport = '';
+
+  //search by capacity scope variables
+  $scope.capacity = '';
+  $scope.searchByCapacity = false;
+  $scope.sizes = [
+          "Light Jet (6-Seats)",
+          "Mid Size Jet (8-Seats)",
+          "Heavy Jet (12-Seats)",
+          "Ultra Long Range (14-Seats)",
+          "Insane (18-Seats)"
+      ];
+
+  $scope.setCapacity = function(capacity){
+    $scope.capacity = capacity;
+  }
 
   function newState(state) {
     alert("Sorry! You'll need to create an airport for " + state + " first!");
@@ -50,11 +60,16 @@ angular.module('findatrip.controller', [])
 
   function selectedItemChange(item) {
     $log.info('Item changed to ' + JSON.stringify(item));
+    if(item === undefined){
+      $scope.destinationAirport = '';
+    }
+    else{
+      $scope.destinationAirport = item.display;
+      console.log($scope.destinationAirport);
+    }
+    
   }
   
-  /**
-   * Build `states` list of key/value pairs
-   */
   function loadAll() {
     var allAirports = ''
     for (var i = 1; i < $scope.data.length; i++){
@@ -66,12 +81,8 @@ angular.module('findatrip.controller', [])
         display: state
       };
     });
-    
   }
 
-  /**
-   * Create filter function for a query string
-   */
   function createFilterFor(query) {
     var lowercaseQuery = angular.lowercase(query);
 
@@ -110,11 +121,9 @@ angular.module('findatrip.controller', [])
         }
       }
       $scope.data = lines;
-      console.log($scope.data);
       $scope.states = loadAll();
     };
   
-
   $scope.toggleDateSelector = function (){
     $scope.searchByDate = !$scope.searchByDate;
   }
@@ -125,8 +134,11 @@ angular.module('findatrip.controller', [])
 
   $scope.toggleDestination = function (){
     $scope.searchByDestination = !$scope.searchByDestination;
-    $scope.readCSV();
-    
+    $scope.readCSV(); 
+  }
+
+  $scope.toggleCapcity = function (){
+    $scope.searchByCapacity = !$scope.searchByCapacity;
   }
 
 

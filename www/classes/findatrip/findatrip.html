@@ -100,5 +100,29 @@
             </tr>
         </table>
     </div>
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="searchByCapacity" ng-change="toggleCapacity()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Capacity     
+    </md-switch>
+   </div>
+      
+  <div ng-show="searchByCapacity" align="center" style="text-align: center; width: 100%;">
+        <table style="border-collapse:collapse; width: 100%;">
+            <tr style="text-align: center;">
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <md-input-container style="margin-right: 10px;">
+                      <label>Minimum Capacity</label>
+                      <md-select ng-model="size" ng-change="printSelected(size)">
+                        <md-option ng-repeat="size in sizes" value="{{size}}" >{{size}}</md-option>
+                      </md-select>
+                    </md-input-container>
+                </div>
+            </tr>
+        </table>
+    </div>
+
   </ion-content>
 </ion-view>
