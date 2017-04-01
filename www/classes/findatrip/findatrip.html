@@ -44,7 +44,7 @@
                 <div style="text-align: center; padding: 15px 15px 15px 15px;">
                     <md-slider-container>
                       <span>Min Price</span>
-                      <md-slider flex min="0" max="20000" ng-model="minPrice" class="md-primary">
+                      <md-slider ng-change="changeMinPrice(minPrice)" flex min="0" max="20000" ng-model="minPrice" class="md-primary">
                       </md-slider>
                       <md-input-container>
                         <input flex type="number" step="100" ng-model="minPrice" >
@@ -54,7 +54,7 @@
                 <div style="text-align: center; padding: 15px 15px 15px 15px;">
                     <md-slider-container>
                       <span>Max Price</span>
-                      <md-slider flex min="0" max="20000" ng-model="maxPrice" class="md-primary">
+                      <md-slider ng-change="changeMaxPrice(maxPrice)" flex min="0" max="20000" ng-model="maxPrice" class="md-primary">
                       </md-slider>
                       <md-input-container>
                         <input flex type="number" step="100" ng-model="maxPrice">
@@ -115,13 +115,33 @@
                 <div style="text-align: center; padding: 15px 15px 15px 15px;">
                     <md-input-container style="margin-right: 10px;">
                       <label>Minimum Capacity</label>
-                      <md-select ng-model="size" ng-change="printSelected(size)">
+                      <md-select ng-model="size" ng-change="setCapacity(size)">
                         <md-option ng-repeat="size in sizes" value="{{size}}" >{{size}}</md-option>
                       </md-select>
                     </md-input-container>
                 </div>
             </tr>
         </table>
+    </div>
+
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;">
+      <md-switch ng-model="flightCrew" ng-change="toggleFlightCrew()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+        &nbsp;&nbsp;&nbsp;&nbsp;?Would you like to have in flight service    
+      </md-switch>
+    </div>
+    <div ng-show="flightCrew" align="center" style="text-align: center; width: 100%;">
+        <table style="border-collapse:collapse; width: 100%;">
+            <tr style="text-align: center;">
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <p>Flight Crew Selected!</p>
+                </div>
+            </tr>
+        </table>
+    </div>
+    <div style="text-align: center; padding-top: 5%">
+      <md-button class="md-raised" style="background-color: white" ng-click="search()">Search for a Trip</md-button>
     </div>
 
   </ion-content>

@@ -24,7 +24,7 @@ angular.module('findatrip.controller', [])
   $scope.destinationAirport = '';
 
   //search by capacity scope variables
-  $scope.capacity = '';
+  $scope.capacity = 0;
   $scope.searchByCapacity = false;
   $scope.sizes = [
           "Light Jet (6-Seats)",
@@ -34,8 +34,49 @@ angular.module('findatrip.controller', [])
           "Insane (18-Seats)"
       ];
 
+  //flight crew selection scope variables
+  $scope.flightCrew = false;
+
+  $scope.changeMinPrice = function(minPrice){
+    $scope.minPrice = minPrice;
+  }
+
+  $scope.changeMaxPrice = function(maxPrice){
+    $scope.maxPrice = maxPrice;
+  }
+
+  $scope.search = function(){
+    var searchQuery = {
+      departureDate: $scope.departureDate,
+      returnDate: $scope.returnDate,
+      minPrice: $scope.minPrice,
+      maxPrice: $scope.maxPrice,
+      destinationAirport: $scope.destinationAirport,
+      capacity: $scope.capacity,
+      flightCrew: $scope.flightCrew
+    }
+
+    console.log(searchQuery);
+  }
+
   $scope.setCapacity = function(capacity){
-    $scope.capacity = capacity;
+    if(capacity == "Light Jet (6-Seats)"){
+      $scope.capacity = 6;
+    }
+    if(capacity == "Mid Size Jet (8-Seats)"){
+      $scope.capacity = 8;
+    }
+    if(capacity == "Heavy Jet (12-Seats)"){
+      $scope.capacity = 12;
+    }
+    if(capacity == "Ultra Long Range (14-Seats)"){
+      $scope.capacity = 14;
+    }
+    if(capacity == "Insane (18-Seats)"){
+      $scope.capacity = 18;
+    }
+    
+    
   }
 
   function newState(state) {
@@ -141,5 +182,8 @@ angular.module('findatrip.controller', [])
     $scope.searchByCapacity = !$scope.searchByCapacity;
   }
 
+  $scope.toggleFlightCrew = function (){
+    $scope.flightCrew = !$scope.flightCrew;
+  }
 
 });
