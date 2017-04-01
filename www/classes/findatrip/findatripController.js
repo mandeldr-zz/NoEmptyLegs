@@ -1,12 +1,11 @@
 angular.module('findatrip.controller', [])
 
-.controller('FindCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log) {
+.controller('FindCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log, flightFilter) {
 
 
   //date selector scope variables
   $scope.searchByDate = false;
   $scope.departureDate = new Date();
-  $scope.returnDate = new Date();
 
   //search by price scope variables
   $scope.searchByPrice = false;
@@ -37,6 +36,10 @@ angular.module('findatrip.controller', [])
   //flight crew selection scope variables
   $scope.flightCrew = false;
 
+  $scope.setDepartureDate = function(date){
+    $scope.departureDate = date;
+  }
+
   $scope.changeMinPrice = function(minPrice){
     $scope.minPrice = minPrice;
   }
@@ -48,14 +51,13 @@ angular.module('findatrip.controller', [])
   $scope.search = function(){
     var searchQuery = {
       departureDate: $scope.departureDate,
-      returnDate: $scope.returnDate,
       minPrice: $scope.minPrice,
       maxPrice: $scope.maxPrice,
       destinationAirport: $scope.destinationAirport,
       capacity: $scope.capacity,
       flightCrew: $scope.flightCrew
     }
-
+    flightFilter.queryFlightList(searchQuery);
     console.log(searchQuery);
   }
 

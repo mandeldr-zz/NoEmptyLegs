@@ -20,11 +20,7 @@
             <tr style="text-align: center;">
                 <div style="text-align: center; padding: 15px 15px 15px 15px;">
                     <h4>Departure Date</h4>
-                    <md-datepicker ng-model="departureDate" md-placeholder="Enter date"></md-datepicker>
-                </div>
-                <div style="text-align: center; padding: 15px 15px 15px 15px;">
-                    <h4>Return Date</h4>
-                    <md-datepicker ng-model="returnDate" md-placeholder="Enter date"></md-datepicker>
+                    <md-datepicker ng-change="setDepartureDate(departureDate)" ng-model="departureDate" md-placeholder="Enter date"></md-datepicker>
                 </div>
             </tr>
         </table>
@@ -69,7 +65,7 @@
   justify-content: center;
   align-items: center;">
     <md-switch ng-model="searchByDestination" ng-change="toggleDestination()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Destination     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search By Airport Name     
     </md-switch>
    </div>
       

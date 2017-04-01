@@ -1,5 +1,11 @@
 angular.module('starter.services', [])
 
+.service('flightFilter', function() {
+    this.queryFlightList = function (query) {
+        console.log(query);
+    }
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
