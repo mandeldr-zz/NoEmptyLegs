@@ -26,12 +26,12 @@ angular.module('user.services', [])
               //$scope.user.username = '';
               //$scope.user.password = '';
             //}
-            //$location.path('/home'); 
+            //$location.path('/home');
             return true;
           }
         }
         catch(err) {
-        }      
+        }
     }
     }
 
@@ -45,9 +45,7 @@ angular.module('user.services', [])
     }
 
     this.signOut = function(){
-      
+
     }
 
 });
-
-

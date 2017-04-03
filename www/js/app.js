@@ -30,13 +30,13 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider  
+  $stateProvider
 
     .state('login', {
     url: '/login',
     templateUrl: 'classes/user/login.html',
     controller: 'UserCtrl'
-      
+
   })
     .state('findatrip', {
     url: '/findatrip',
@@ -57,6 +57,11 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.
       url:'/signUp',
       templateUrl: 'classes/signUp/signUp.html',
       controller: 'signUpCtrl'
+  })
+    .state('serviceRegister', {
+      url:'/registration',
+      templateUrl: 'classes/signUp/registration.html',
+      controller: 'registrationCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback

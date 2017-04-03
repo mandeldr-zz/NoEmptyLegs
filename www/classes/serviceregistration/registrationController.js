@@ -1,6 +1,6 @@
 angular.module('registration.controller', [])
 
-.controller('registrationCtrl', function($scope, $stateParams, $rootScope, $location) {
+.controller('registrationCtrl', function($scope, $stateParams, $rootScope, $location, services) {
 
   $scope.user = {
   	planeType: '',
@@ -9,15 +9,14 @@ angular.module('registration.controller', [])
   	departureAirport: '',
     departureDate: '',
     destinationAirport: '',
-    flightCrew=false};
+    flightCrew: false};
 
-  $scope.flightVar = [];
+  $scope.flights = [];
 
   $scope.registration = function (flight){
-
-	  	console.log($scope.flight);
-	  	$scope.userList.push(flight);
-	  	console.log($scope.userList);
+      service.createFlight(flight);
+      console.log(flight);
+	  	$location.path('/home');
 
 
 

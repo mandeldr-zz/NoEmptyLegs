@@ -21,7 +21,7 @@ angular.module('starter.services', [])
         if(flightsByCapacity != null){
           this.availableFlights = flightsByCapacity;
         }
-        console.log(Flights.all()); 
+        console.log(Flights.all());
     }
 
     this.getAvilableFlights = function(){
@@ -87,7 +87,15 @@ angular.module('starter.services', [])
     destinationAirport: 'Nevada Municipal Airport',
     flightCrew: true,
     bookingID: null
-  }];
+  }]
+
+  this.createFlight = function(flight){
+    flights.push(flight);
+    console.log(flights);
+
+  }
+
+  ;
 
   return {
     all: function() {
