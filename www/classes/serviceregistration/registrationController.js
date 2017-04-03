@@ -9,7 +9,7 @@ angular.module('registration.controller', [])
   	departureAirport: '',
     departureDate: '',
     destinationAirport: '',
-    flightCrew: ''};
+    flightCrew=false};
 
   $scope.flightVar = [];
 

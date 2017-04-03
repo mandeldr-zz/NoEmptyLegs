@@ -14,47 +14,38 @@
 
       <form name="userForm">
 
-        <md-input-container flex="50">
-        <label>Title</label>
-        <md-select name="title" ng-model="user.title">
-          <md-option value="Mr.">Mr.</md-option>
-          <md-option value="Mrs.">Mrs.</md-option>
-          <md-option value="Ms.">Ms.</md-option>
-        </md-select>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Plane Type</label>
+          <input ng-model="user.planeType" type="planeType" required="true">
         </md-input-container>
 
-
-
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>First name</label>
-            <input ng-model="user.firstName" required="true">
-          </md-input-container>
-
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Last Name</label>
-            <input ng-model="user.lastName" required="true">
-          </md-input-container>
-
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Plane Type</label>
+          <input ng-model="user.departureAirport" type="departureAirport" required="true">
+        </md-input-container>
 
         <md-input-container>
-        <label>Email</label>
-        <input ng-model="user.email" type="email" required="true">
+        <label>Capacity</label>
+        <input ng-model="user.capacity" type="capacity" required="false">
       	</md-input-container>
 
-      	<md-input-container>
-        <label>Username</label>
-        <input ng-model="user.username" required="true">
+        <md-input-container>
+        <label>Cost</label>
+        <input ng-model="user.cost" type="cost" required="false">
       	</md-input-container>
 
-      	<md-input-container>
-        <label>Password</label>
-        <input ng-model="user.password" type="password" required="true">
-      	</md-input-container>
+        <div flex-gt-xs>
+          <h4>Select the departure date</h4>
+          <md-datepicker ng-model="user.departureDate" md-placeholder="Enter date" required="false">
+          </md-datepicker>
+        </div>
 
-      	<md-input-container>
-        <label>Verify Password</label>
-        <input ng-model="user.passwordVerified" type="password" required="true">
-      	</md-input-container>
+        <div flex-gt-sm="50">
+          <md-checkbox ng-model="user.flightCrew" aria-label="Flight crew included">
+            Flight crew included: {{ user.flightCrew }}
+          </md-checkbox>
+        </div>
+
       </form>
     </div>
   </md-content>
