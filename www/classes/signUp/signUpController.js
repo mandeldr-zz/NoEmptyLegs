@@ -17,7 +17,7 @@ angular.module('signUp.controller', [])
       userService.createAccount(user);
 	  	console.log(user);
       $location.path('/home'); 
-
   }
+
 
 });
