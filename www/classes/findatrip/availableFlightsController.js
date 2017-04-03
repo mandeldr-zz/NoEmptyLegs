@@ -4,6 +4,13 @@ angular.module('availableflights.controller', [])
 
   $scope.flights = flightFilter.getAvilableFlights();
 
+  if($scope.flights.length == 0){
+    $scope.showFlights = true;
+  }
+  else{
+    $scope.showFlights = false 
+  } 
+
   $scope.book = function(ev){
     console.log(ev);
     var selectedFlight = $scope.flights[ev];

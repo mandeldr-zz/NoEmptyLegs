@@ -1,17 +1,32 @@
 angular.module('starter.services', [])
 
 .service('flightFilter', function(Flights) {
+    this.availableFlights = Flights.all();
+
     this.queryFlightList = function (query) {
         console.log(query);
+        var flights = Flights.all();
+
+        //filter by capacity
+        var flightsByCapacity = [];
+        for(var i = 0; i < flights.length; i++){
+          if(flights[i].capacity == 0){
+            this.availableFlights = flights
+            break;
+          }
+          else if(flights[i].capacity >= query.capacity){
+            flightsByCapacity.push(flights[i]);
+          }
+        }
+        if(flightsByCapacity != null){
+          this.availableFlights = flightsByCapacity;
+        }
         console.log(Flights.all()); 
     }
 
-    this.availableFlights = function (flightList){
-
-    }
-
     this.getAvilableFlights = function(){
-      return Flights.all();
+      console.log(this.availableFlights);
+      return this.availableFlights;
     }
 })
 

@@ -35,7 +35,15 @@
       </li>
     </ul>
   </div>
-    
+    <div ng-show="showFlights" align="center" style="text-align: center; width: 100%;">
+        <table style="border-collapse:collapse; width: 100%;">
+            <tr style="text-align: center;">
+                <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <p>{{flights ? 'Sorry we could not find any flights matching your search criteria!' : ''}}</p>
+                </div>
+            </tr>
+        </table>
+    </div>
 
   </ion-content>
 </ion-view>
