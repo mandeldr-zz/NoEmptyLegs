@@ -1,53 +1,90 @@
 angular.module('starter.services', [])
 
-.service('flightFilter', function() {
+.service('flightFilter', function(Flights) {
     this.queryFlightList = function (query) {
-        console.log(query);    
+        console.log(query);
+        console.log(Flights.all()); 
+    }
+
+    this.availableFlights = function (flightList){
+
+    }
+
+    this.getAvilableFlights = function(){
+      return Flights.all();
     }
 })
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
+.service('Flights', function() {
+  // Some flight data
+  var flights = [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
+    planeType: 'Bombardier Challenger 604',
+    capacity: 10,
+    cost: 13100,
+    img: 'img/bombardierChallenger.jpeg',
+    departureAirport: 'Muskoka Airport',
+    departureDate: new Date(),
+    destinationAirport: 'Saskatoon John G. Diefenbaker International Airport',
+    flightCrew: false,
+    bookingID: null
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
+    planeType: 'Dassault Falcon 900EX',
+    capacity: 14,
+    cost: 15600,
+    img: 'img/dassault.jpg',
+    departureAirport: 'Toronto Aerodrome',
+    departureDate: new Date(),
+    destinationAirport: 'Cuba Municipal Airport',
+    flightCrew: true,
+    bookingID: null
   }, {
     id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
+    planeType: 'Cessna Citation Ultra',
+    capacity: 7,
+    cost: 6700,
+    img: 'img/cessna.jpg',
+    departureAirport: 'Calgary International Airport',
+    departureDate: new Date(),
+    destinationAirport: 'Quebec Jean Lesage International Airport',
+    flightCrew: false,
+    bookingID: null
   }, {
     id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    planeType: 'Bombardier Challenger 650',
+    capacity: 12,
+    cost: 5000,
+    img: 'img/challenger.jpg',
+    departureAirport: 'New York Mills Municipal Airport',
+    departureDate: new Date(),
+    destinationAirport: 'Los Angeles International Airport',
+    flightCrew: true,
+    bookingID: null
   }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    id: 0,
+    planeType: 'Bombardier Challenger 601-1A',
+    capacity: 16,
+    cost: 18050,
+    img: 'img/challenger601.jpg',
+    departureAirport: 'Florida Airport',
+    departureDate: new Date(),
+    destinationAirport: 'Nevada Municipal Airport',
+    flightCrew: true,
+    bookingID: null
   }];
 
   return {
     all: function() {
-      return chats;
+      return flights;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(flight) {
+      flights.splice(flights.indexOf(flight), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(flightId) {
+      for (var i = 0; i < flights.length; i++) {
+        if (flights[i].id === parseInt(flightId)) {
+          return flights[i];
         }
       }
       return null;

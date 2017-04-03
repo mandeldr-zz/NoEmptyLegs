@@ -3,10 +3,38 @@
     <img src="img/blurred.jpg" style="position: absolute; display: block; width: 100%; height: 100%">
   </div>
   <ion-nav-bar class="bar-clear" align-title="center">
-    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-back-button>Back</ion-nav-back-button>
   </ion-nav-bar>
   <ion-content scroll="true">
-
+  <div>
+    <ul>
+      <li>
+        <md-card md-theme="default" ng-repeat="flight in flights" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{flight.planeType}}</span>
+            <span class="md-subhead">Capcity: {{flight.capacity}}</span>
+            <span class="md-subhead">Cost: ${{flight.cost}}</span>
+            <span class="md-subhead">Departure: {{flight.departureAirport}}</span>
+            <span class="md-subhead">Destination: {{flight.destinationAirport}}</span>
+            <span class="md-subhead">Date: {{flight.departureDate.toString()}}</span>
+            <span class="md-subhead">Flight Crew: {{flight.flightCrew ? 'Yes' : 'No'}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="{{flight.img}}" class="md-media-lg card-media"></img>
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-content>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" ng-click="book(flight.id)" style="background-color: green; margin: 20px">Book Me!</md-button>
+        </md-card-actions>
+      </md-card>
+      </li>
+    </ul>
+  </div>
     
 
   </ion-content>
