@@ -1,6 +1,6 @@
 angular.module('user.controller', [])
 
-.controller('UserCtrl', function($scope, $stateParams, $rootScope, $location) {
+.controller('UserCtrl', function($scope, $stateParams, $rootScope, $location, userService) {
   //user schema
   var user = {id: '', username: '', password: '', userType: ''};
   //owner
@@ -19,31 +19,15 @@ angular.module('user.controller', [])
 
   $scope.login = function (username, password) {
     //iterate through users and find user
-    for (var i in users){
-        try{
-
-          if(users[i].username == username && users[i].password == password){
-            console.log("Authenticated");
-            //assign credentials to the logged in user
-            user.id = users[i].id;
-            user.username = users[i].username;
-            user.password = users[i].password;
-            user.userType = users[i].userType;
-            //store on root scope for all controllers
-            $rootScope.user = user;
-            //check if rememberMe is selected
             if ($scope.rememberMe == false) {
               $scope.user.username = '';
               $scope.user.password = '';
             }
-            $location.path('/home'); 
-            console.log($rootScope.user);
-            break;
-          }
-        }
-        catch(err) {
-        }      
-    }
+            if(userService.login(username, password) == true){
+              console.log("Hello")
+              $location.path('/home');
+            }
+  
   }
 
   $scope.logout = function (){

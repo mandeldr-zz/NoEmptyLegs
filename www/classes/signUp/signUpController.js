@@ -1,6 +1,6 @@
 angular.module('signUp.controller', [])
 
-.controller('signUpCtrl', function($scope, $stateParams, $rootScope, $location) {
+.controller('signUpCtrl', function($scope, $stateParams, $rootScope, $location, userService) {
 
   $scope.user = {
   	title: '', 
@@ -14,13 +14,9 @@ angular.module('signUp.controller', [])
   $scope.userList = [];
 
   $scope.signUp = function (user){
-
-	  	console.log($scope.user);
-	  	$scope.userList.push(user);
-	  	console.log($scope.userList);
-
-  	
-
+      userService.createAccount(user);
+	  	console.log(user);
+      $location.path('/home'); 
 
   }
 
