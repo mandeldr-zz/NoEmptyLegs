@@ -58,6 +58,7 @@ angular.module('findatrip.controller', [])
       flightCrew: $scope.flightCrew
     }
     flightFilter.queryFlightList(searchQuery);
+    $location.path('/availableflights');
     console.log(searchQuery);
   }
 

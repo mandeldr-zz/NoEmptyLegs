@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,6 +42,11 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.
     url: '/findatrip',
     templateUrl: 'classes/findatrip/findatrip.html',
     controller: 'FindCtrl'
+  })
+    .state('availableflights', {
+    url: '/availableflights',
+    templateUrl: 'classes/findatrip/availableFlights.html',
+    controller: 'AvailCtrl'
   })
     .state('home', {
     url: '/home',
