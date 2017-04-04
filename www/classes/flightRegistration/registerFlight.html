@@ -9,49 +9,49 @@
 
   <ion-content scroll="true">
 
-<md-content layout-padding>
+
     <div>
 
-      <form name="flightForm" ng-model="flight">
+      <form name="flightForm" ng-model="flight" style="padding:10px">
 
         <md-input-container class="md-block" flex-gt-sm>
           <label>Plane Type</label>
-          <input ng-model="user.planeType" type="planeType" required="true">
+          <input ng-model="flight.planeType" required="true">
         </md-input-container>
 
         <md-input-container class="md-block" flex-gt-sm>
-          <label>Plane Type</label>
-          <input ng-model="user.departureAirport" type="departureAirport" required="true">
+          <label>Departure Airport</label>
+          <input ng-model="flight.departureAirport" required="true">
         </md-input-container>
 
         <md-input-container>
         <label>Capacity</label>
-        <input ng-model="user.capacity" type="capacity" required="false">
+        <input ng-model="flight.capacity" required="false">
       	</md-input-container>
 
         <md-input-container>
         <label>Cost</label>
-        <input ng-model="user.cost" type="cost" required="false">
+        <input ng-model="flight.cost" required="false">
       	</md-input-container>
 
-        <div flex-gt-xs>
+        <div flex-gt-xs style="justify-content: center; align-items: center; text-align:center">
           <h4>Select the departure date</h4>
-          <md-datepicker ng-model="user.departureDate" md-placeholder="Enter date" required="false">
+          <md-datepicker ng-model="flight.departureDate" md-placeholder="Enter date" required="false">
           </md-datepicker>
         </div>
 
-        <div flex-gt-sm="50">
-          <md-checkbox ng-model="user.flightCrew" aria-label="Flight crew included" required="false">
-            Flight crew included: {{ user.flightCrew }}
+        <div flex-gt-sm="50" style="padding:20px; padding-top:30px; justify-content: center; align-items: center; text-align:center">
+          <md-checkbox ng-model="flight" ng-change="checkFlightCrew(flight)" aria-label="Flight crew included" required="false">
+            Flight crew included
           </md-checkbox>
         </div>
 
       </form>
     </div>
-  </md-content>
+
 
      <div style="text-align: center; padding-top: 5%">
-   	<md-button class="md-raised md-primary" ng-click="signUp(user)">Create Flight</md-button>
+   	<md-button class="md-raised md-primary" ng-click="registerFlight(flight)">Create Flight</md-button>
    </div>
 
   </ion-content>

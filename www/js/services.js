@@ -77,7 +77,7 @@ angular.module('starter.services', [])
     flightCrew: true,
     bookingID: null
   }, {
-    id: 0,
+    id: 4,
     planeType: 'Bombardier Challenger 601-1A',
     capacity: 16,
     cost: 18050,
@@ -87,17 +87,16 @@ angular.module('starter.services', [])
     destinationAirport: 'Nevada Municipal Airport',
     flightCrew: true,
     bookingID: null
-  }]
-
-  this.createFlight = function(flight){
-    flights.push(flight);
-    console.log(flights);
-
-  }
-
-  ;
+  }];
 
   return {
+    createFlight: function(flight){
+        flight.id = flights.length;
+        flight.img = 'img/bombardierChallenger.jpeg';
+        flight.bookingID = null;
+        flights.push(flight);
+        console.log(flights);
+    },
     all: function() {
       return flights;
     },
@@ -111,6 +110,13 @@ angular.module('starter.services', [])
         }
       }
       return null;
+    },
+    addFlightCrew: function(flight){
+      for(var i = 0; i < flights.length; i++){
+        if(flights[i].id == flight.id){
+          flights[i] = flight;
+        }
+      }
     }
   };
 });

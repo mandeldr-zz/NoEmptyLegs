@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'offerServices.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -58,10 +58,20 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.
       templateUrl: 'classes/signUp/signUp.html',
       controller: 'signUpCtrl'
   })
-    .state('serviceRegister', {
-      url:'/registration',
-      templateUrl: 'classes/signUp/registration.html',
-      controller: 'registrationCtrl'
+    .state('registerFlight', {
+      url:'/registerFlight',
+      templateUrl: 'classes/flightRegistration/registerFlight.html',
+      controller: 'flightRegistrationCtrl'
+  })
+    .state('offerFlightCrew', {
+      url:'/offerFlightCrew',
+      templateUrl: 'classes/offerFlightCrew/offerFlightCrew.html',
+      controller: 'offerFlightCrewCtrl'
+  })
+    .state('offerServices', {
+      url:'/offerServices',
+      templateUrl: 'classes/offerServices/offerServices.html',
+      controller: 'offerServicesCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
