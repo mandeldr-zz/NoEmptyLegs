@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'offerServices.controller'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'offerServices.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,36 +39,43 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'starter.services', 'user.
 
   })
     .state('findatrip', {
+    cache: false,  
     url: '/findatrip',
     templateUrl: 'classes/findatrip/findatrip.html',
     controller: 'FindCtrl'
   })
     .state('availableflights', {
+    cache: false,
     url: '/availableflights',
     templateUrl: 'classes/findatrip/availableFlights.html',
     controller: 'AvailCtrl'
   })
     .state('home', {
+    cache: false,
     url: '/home',
     templateUrl: 'classes/home/home.html',
     controller: 'HomeCtrl'
   })
     .state('signUp', {
+      cache: false,
       url:'/signUp',
       templateUrl: 'classes/signUp/signUp.html',
       controller: 'signUpCtrl'
   })
     .state('registerFlight', {
+      cache: false,
       url:'/registerFlight',
       templateUrl: 'classes/flightRegistration/registerFlight.html',
       controller: 'flightRegistrationCtrl'
   })
     .state('offerFlightCrew', {
+      cache: false,
       url:'/offerFlightCrew',
       templateUrl: 'classes/offerFlightCrew/offerFlightCrew.html',
       controller: 'offerFlightCrewCtrl'
   })
     .state('offerServices', {
+      cache: false,
       url:'/offerServices',
       templateUrl: 'classes/offerServices/offerServices.html',
       controller: 'offerServicesCtrl'

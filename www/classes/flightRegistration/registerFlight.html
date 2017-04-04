@@ -24,24 +24,29 @@
           <input ng-model="flight.departureAirport" required="true">
         </md-input-container>
 
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Destination Airport</label>
+          <input ng-model="flight.destinationAirport" required="true">
+        </md-input-container>
+
         <md-input-container>
         <label>Capacity</label>
-        <input ng-model="flight.capacity" required="false">
+        <input ng-model="flight.capacity" required="true">
       	</md-input-container>
 
         <md-input-container>
         <label>Cost</label>
-        <input ng-model="flight.cost" required="false">
+        <input ng-model="flight.cost" required="true">
       	</md-input-container>
 
         <div flex-gt-xs style="justify-content: center; align-items: center; text-align:center">
           <h4>Select the departure date</h4>
-          <md-datepicker class="md-primary" ng-model="flight.departureDate" md-placeholder="Enter date" required="false">
+          <md-datepicker class="md-primary" ng-model="flight.departureDate" md-placeholder="Enter Date" required="true">
           </md-datepicker>
         </div>
 
         <div flex-gt-sm="50" style="padding:20px; padding-top:30px; justify-content: center; align-items: center; text-align:center">
-          <md-checkbox class="md-primary" ng-model="flight" ng-change="checkFlightCrew(flight)" aria-label="Flight crew included" required="false">
+          <md-checkbox class="md-primary" type="checkbox" ng-model="flight.flightCrew" aria-label="Flight crew included" required="false">
             Flight crew included
           </md-checkbox>
         </div>

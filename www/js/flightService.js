@@ -1,7 +1,11 @@
-angular.module('starter.services', [])
+angular.module('flight.service', [])
 
 .service('flightFilter', function(Flights) {
     this.availableFlights = Flights.all();
+
+    this.setAvailableFlights = function(flights){
+      this.availableFlights = flights;
+    }
 
     this.queryFlightList = function (query) {
         console.log(query);
@@ -19,20 +23,20 @@ angular.module('starter.services', [])
           }
         }
         if(flightsByCapacity != null){
-          this.availableFlights = flightsByCapacity;
+          this.setAvailableFlights(flightsByCapacity);
         }
         console.log(Flights.all());
     }
 
-    this.getAvilableFlights = function(){
+    this.getAvailableFlights = function(){
       console.log(this.availableFlights);
-      return this.availableFlights;
+      return (this.availableFlights);
     }
 })
 
 .service('Flights', function() {
   // Some flight data
-  var flights = [{
+  this.flights = [{
     id: 0,
     planeType: 'Bombardier Challenger 604',
     capacity: 10,
@@ -89,34 +93,37 @@ angular.module('starter.services', [])
     bookingID: null
   }];
 
-  return {
-    createFlight: function(flight){
-        flight.id = flights.length;
-        flight.img = 'img/bombardierChallenger.jpeg';
-        flight.bookingID = null;
-        flights.push(flight);
-        console.log(flights);
-    },
-    all: function() {
-      return flights;
-    },
-    remove: function(flight) {
-      flights.splice(flights.indexOf(flight), 1);
-    },
-    get: function(flightId) {
-      for (var i = 0; i < flights.length; i++) {
-        if (flights[i].id === parseInt(flightId)) {
-          return flights[i];
-        }
-      }
-      return null;
-    },
-    addFlightCrew: function(flight){
-      for(var i = 0; i < flights.length; i++){
-        if(flights[i].id == flight.id){
-          flights[i] = flight;
-        }
+  
+  this.createFlight = function(flight){
+      flight.id = this.flights.length;
+      flight.img = 'img/bombardierChallenger.jpeg';
+      flight.bookingID = null;
+      this.flights.push(flight);
+      console.log(this.flights);
+  }
+  this.all = function() {
+    return (this.flights);
+  }
+  this.set = function(flights) {
+    this.flights = flights;
+  }
+  this.remove = function(flight) {
+    this.flights.splice(flights.indexOf(flight), 1);
+  }
+  this.get = function(flightId) {
+    for (var i = 0; i < flights.length; i++) {
+      if (this.flights[i].id === parseInt(flightId)) {
+        return this.flights[i];
       }
     }
-  };
+    return null;
+  }
+  this.addFlightCrew = function(flight){
+    for(var i = 0; i < this.flights.length; i++){
+      if(this.flights[i].id == flight.id){
+        this.flights[i] = flight;
+      }
+    }
+  }
+  
 });

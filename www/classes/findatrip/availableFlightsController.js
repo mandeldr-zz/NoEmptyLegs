@@ -2,7 +2,7 @@ angular.module('availableflights.controller', [])
 
 .controller('AvailCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log, $mdDialog, flightFilter) {
 
-  $scope.flights = flightFilter.getAvilableFlights();
+  $scope.flights = flightFilter.getAvailableFlights();
 
   if($scope.flights.length == 0){
     $scope.showFlights = true;

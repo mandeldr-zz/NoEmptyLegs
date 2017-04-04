@@ -12,7 +12,7 @@
     <div>
       <ul>
         <li>
-          <md-card md-theme="default" ng-repeat="flight in newFlights" md-theme-watch>
+          <md-card md-theme="default" ng-repeat="flight in newFlights track by $index" md-theme-watch>
           <md-card-title>
             <md-card-title-text>
               <span class="md-headline">{{flight.planeType}}</span>

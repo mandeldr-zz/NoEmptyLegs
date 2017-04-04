@@ -9,7 +9,7 @@
   <div>
     <ul>
       <li>
-        <md-card md-theme="default" ng-repeat="flight in flights" md-theme-watch>
+        <md-card md-theme="default" ng-repeat="flight in flights track by $index" md-theme-watch>
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{flight.planeType}}</span>
