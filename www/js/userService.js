@@ -1,6 +1,6 @@
 angular.module('user.services', [])
 
-.service('userService', function($location) {
+.service('userService', function($location, $mdDialog) {
 
   var userList = [];
 
@@ -35,9 +35,24 @@ angular.module('user.services', [])
     }
     }
 
-    this.createAccount = function(user){
-        userList.push(user);
-        console.log(userList);
+    this.createAccount = function(user, ev){
+        if(user.password == user.passwordVerified){
+          userList.push(user);
+          console.log(userList);
+          $location.path('/home');
+        }else{
+            var alert = $mdDialog.show(
+          $mdDialog.alert()
+          .parent(angular.element(document.querySelector('#popupContainer')))
+          .clickOutsideToClose(true)
+          .title('Error')
+          .textContent('Passwords do not match!')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Got it!')
+          .targetEvent(ev)
+      );
+        }
+        
     }
 
     this.users = function(){

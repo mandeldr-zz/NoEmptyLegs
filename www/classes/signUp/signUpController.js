@@ -13,10 +13,9 @@ angular.module('signUp.controller', [])
 
   $scope.userList = [];
 
-  $scope.signUp = function (user){
+  $scope.signUp = function (user, ev){
       userService.createAccount(user);
 	  	console.log(user);
-      $location.path('/home'); 
   }
 
 
