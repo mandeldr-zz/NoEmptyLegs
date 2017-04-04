@@ -15,7 +15,7 @@ angular.module('flight.service', [])
         var flightsByCapacity = [];
         for(var i = 0; i < flights.length; i++){
           if(flights[i].capacity == 0){
-            this.availableFlights = flights
+            this.setAvailableFlights(flights);
             break;
           }
           else if(flights[i].capacity >= query.capacity){
@@ -25,7 +25,27 @@ angular.module('flight.service', [])
         if(flightsByCapacity != null){
           this.setAvailableFlights(flightsByCapacity);
         }
+        else{
+          this.setAvailableFlights(Flights.all());
+        }
         console.log(Flights.all());
+
+        //filter by flight crew
+        var flights = this.getAvailableFlights();
+        var flightsByFlightCrew = [];
+        if(query.flightCrew == true){
+          for(var i = 0; i < flights.length; i++){
+            if(flights[i].flightCrew == true){
+              flightsByFlightCrew.push(flights[i]);
+            }
+          }
+        }
+        if(flightsByFlightCrew != null){
+          this.setAvailableFlights(flightsByFlightCrew);
+        }
+        else{
+          this.setAvailableFlights(Flights.all());
+        }
     }
 
     this.getAvailableFlights = function(){
