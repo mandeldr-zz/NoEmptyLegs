@@ -36,12 +36,12 @@
 
         <div flex-gt-xs style="justify-content: center; align-items: center; text-align:center">
           <h4>Select the departure date</h4>
-          <md-datepicker ng-model="flight.departureDate" md-placeholder="Enter date" required="false">
+          <md-datepicker class="md-primary" ng-model="flight.departureDate" md-placeholder="Enter date" required="false">
           </md-datepicker>
         </div>
 
         <div flex-gt-sm="50" style="padding:20px; padding-top:30px; justify-content: center; align-items: center; text-align:center">
-          <md-checkbox ng-model="flight" ng-change="checkFlightCrew(flight)" aria-label="Flight crew included" required="false">
+          <md-checkbox class="md-primary" ng-model="flight" ng-change="checkFlightCrew(flight)" aria-label="Flight crew included" required="false">
             Flight crew included
           </md-checkbox>
         </div>

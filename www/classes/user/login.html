@@ -1,14 +1,16 @@
 <ion-view view-title="" hide-back-button="true">
   <div style="top: 0px; margin-left: 0px; width: calc(100% + 20px);">
-  	<img src="img/login.jpg" style="position: absolute; display: block; width: 150%; height: 40%">
+  	<img src="img/login.png" style="position: absolute; display: block; width: 100%; height: 40%">
   </div>
   <ion-nav-bar class="bar-clear">
   	<ion-nav-back-button></ion-nav-back-button>
 
   </ion-nav-bar>
   <ion-content scroll="false">
+  
   <div style="margin-top: 70%">
   </div>
+  
   <div style="display: flex;
   justify-content: center;
   align-items: center;">
@@ -33,10 +35,10 @@
 	  </md-switch>
    </div>
    <div style="text-align: center; padding-top: 5%">
-   	<md-button class="md-raised md-primary" ng-click="login(user.username, user.password)">Sign In</md-button>
+   	<md-button class="md-raised md-primary" style="min-width: 125px" ng-click="login(user.username, user.password)">Sign In</md-button>
    </div>
    <div style="text-align: center; padding-top: 5%">
-    <md-button ng-href="#/signUp">Don't have an account? Create one</md-button>
+    <md-button ng-href="#/signUp">Don't have an account? Create one!</md-button>
    </div>
   </ion-content>
   <!--Test-->

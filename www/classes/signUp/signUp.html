@@ -9,10 +9,10 @@
 
   <ion-content scroll="true">
 
-<md-content layout-padding>
+
     <div>
 
-      <form name="userForm" ng-model="user">
+      <form name="userForm" ng-model="user" style="padding:10px">
 
         <md-input-container flex="50">
         <label>Title</label>
@@ -57,7 +57,7 @@
       	</md-input-container>
       </form>
     </div>
-  </md-content>
+  
 
      <div style="text-align: center; padding-top: 5%">
    	<md-button class="md-raised md-primary" ng-click="userForm.$valid && signUp(user)" >Create Account</md-button>
