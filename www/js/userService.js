@@ -42,14 +42,14 @@ angular.module('user.services', [])
           $location.path('/home');
         }else{
             var alert = $mdDialog.show(
-          $mdDialog.alert()
-          .parent(angular.element(document.querySelector('#popupContainer')))
-          .clickOutsideToClose(true)
-          .title('Error')
-          .textContent('Passwords do not match!')
-          .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
-          .targetEvent(ev)
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Error')
+                .textContent('Passwords do not match!')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
       );
         }
         
