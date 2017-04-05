@@ -9,26 +9,19 @@ angular.module('flight.service', [])
 
     this.queryFlightList = function (query) {
         console.log(query);
-        var flights = Flights.all();
 
         //filter by capacity
+        var flights = Flights.all();
         var flightsByCapacity = [];
         for(var i = 0; i < flights.length; i++){
-          if(flights[i].capacity == 0){
-            this.setAvailableFlights(flights);
-            break;
-          }
-          else if(flights[i].capacity >= query.capacity){
+          if(flights[i].capacity >= query.capacity){
             flightsByCapacity.push(flights[i]);
           }
         }
-        if(flightsByCapacity != null){
+        if(flightsByCapacity.length > 0){
           this.setAvailableFlights(flightsByCapacity);
         }
-        else{
-          this.setAvailableFlights(Flights.all());
-        }
-        console.log(Flights.all());
+        console.log(flightsByCapacity);
 
         //filter by flight crew
         var flights = this.getAvailableFlights();
@@ -40,12 +33,60 @@ angular.module('flight.service', [])
             }
           }
         }
-        if(flightsByFlightCrew != null){
+        if(flightsByFlightCrew.length > 0 && query.flightCrew == true){
           this.setAvailableFlights(flightsByFlightCrew);
         }
-        else{
-          this.setAvailableFlights(Flights.all());
+        console.log(flightsByFlightCrew);
+
+        //filter by airport name
+        var flights = this.getAvailableFlights();
+        var flightsByAirport = [];
+        if(query.departureAirport != ""){
+          for(var i = 0; i < flights.length; i++){
+            if(flights[i].departureAirport == query.departureAirport){
+              flightsByAirport.push(flights[i]);
+            }
+          }
         }
+        if(flightsByAirport.length > 0 && query.departureAirport != ""){
+          this.setAvailableFlights(flightsByAirport);
+        }
+        console.log(flightsByAirport);
+
+        //filter by min and max price
+        var flights = this.getAvailableFlights();
+        var flightsByPrice = [];
+        if(query.priceFilterActive == true){
+          for(var i = 0; i < flights.length; i++){
+            if(flights[i].cost >= query.minPrice && flights[i].cost <= query.maxPrice){
+              flightsByPrice.push(flights[i]);
+            }
+          }
+        }
+        if(flightsByPrice.length > 0 && query.priceFilterActive == true){
+          this.setAvailableFlights(flightsByPrice);
+        }
+        console.log(flightsByPrice);
+
+        //filter by date of departure
+        var flights = this.getAvailableFlights();
+        var flightsByDate = [];
+        if(query.departureDateActive == true){
+          for(var i = 0; i < flights.length; i++){
+            if(flights[i].departureDate.getDate() == query.departureDate.getDate() && flights[i].departureDate.getFullYear() == query.departureDate.getFullYear() && 
+              flights[i].departureDate.getMonth() == query.departureDate.getMonth()){
+              flightsByDate.push(flights[i]);
+            }
+          }
+        }
+        if(flightsByDate.length > 0 && query.departureDateActive == true){
+          this.setAvailableFlights(flightsByDate);
+        }
+        console.log(flightsByDate);
+
+        //now set available flights based off sorted arrays
+        
+
     }
 
     this.getAvailableFlights = function(){

@@ -12,15 +12,15 @@ angular.module('findatrip.controller', [])
   $scope.minPrice = 0;
   $scope.maxPrice = 0;
 
-  //search by destination scope variables  
-  $scope.searchByDestination = false;
+  //search by departure scope variables  
+  $scope.searchByDeparture = false;
   $scope.simulateQuery = false;
   $scope.isDisabled    = false;
   $scope.querySearch   = querySearch;
   $scope.selectedItemChange = selectedItemChange;
   $scope.searchTextChange   = searchTextChange;
   $scope.newState = newState;
-  $scope.destinationAirport = '';
+  $scope.departureAirport = '';
 
   //search by capacity scope variables
   $scope.capacity = 0;
@@ -50,10 +50,12 @@ angular.module('findatrip.controller', [])
 
   $scope.search = function(){
     var searchQuery = {
+      departureDateActive: $scope.searchByDate,
       departureDate: $scope.departureDate,
+      priceFilterActive: $scope.searchByPrice,
       minPrice: $scope.minPrice,
       maxPrice: $scope.maxPrice,
-      destinationAirport: $scope.destinationAirport,
+      departureAirport: $scope.departureAirport,
       capacity: $scope.capacity,
       flightCrew: $scope.flightCrew
     }
@@ -105,11 +107,11 @@ angular.module('findatrip.controller', [])
   function selectedItemChange(item) {
     $log.info('Item changed to ' + JSON.stringify(item));
     if(item === undefined){
-      $scope.destinationAirport = '';
+      $scope.departureAirport = '';
     }
     else{
-      $scope.destinationAirport = item.display;
-      console.log($scope.destinationAirport);
+      $scope.departureAirport = item.display;
+      console.log($scope.departureAirport);
     }
     
   }
@@ -176,8 +178,8 @@ angular.module('findatrip.controller', [])
     $scope.searchByPrice = !$scope.searchByPrice;
   }
 
-  $scope.toggleDestination = function (){
-    $scope.searchByDestination = !$scope.searchByDestination;
+  $scope.toggleDeparture = function (){
+    $scope.searchByDeparture = !$scope.searchByDeparture;
     $scope.readCSV(); 
   }
 
