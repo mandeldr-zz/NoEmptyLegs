@@ -1,6 +1,6 @@
 angular.module('availableflights.controller', [])
 
-.controller('AvailCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log, $mdDialog, flightFilter, $cordovaSms, $ionicPlatform, Flights) {
+.controller('AvailCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log, $mdDialog, flightFilter, $cordovaSms, $ionicPlatform, Flights, userService) {
 
   $scope.flights = flightFilter.getAvailableFlights();
   $scope.flightList = Flights.all();
@@ -48,7 +48,7 @@ angular.module('availableflights.controller', [])
     $scope.sendSMS = function(msg) {
  
       $cordovaSms
-        .send('2894005444', 'This is your flight ID ' + msg, options)
+        .send(userService.getUser().phoneNumber, 'This is your flight ID ' + msg, options)
         .then(function() {
           alert('Success');
           // Success! SMS was sent

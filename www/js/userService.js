@@ -21,6 +21,10 @@ angular.module('user.services', [])
       this.user = user;
     }
 
+    this.getUser = function(){
+      return (this.user);
+    }
+
     this.createAccount = function(user, ev){
         if(user.password == user.passwordVerified){
           Users.createAccount(user);
@@ -44,9 +48,9 @@ angular.module('user.services', [])
 
 .service('Users', function() {
   // Some user data
-  this.users = [{id: '01', username: 'owner1', password: 'owner1', userType: 'owner'},
-   {id: '02', username: 'customer1', password: 'customer1', userType: 'customer'},
-   {id: '03', username: 'crew1', password: 'crew1', userType: 'crew'}];
+  this.users = [{id: '01', username: 'owner1', password: 'owner1', userType: 'owner', phoneNumber:'9059238412'},
+   {id: '02', username: 'customer1', password: 'customer1', userType: 'customer', phoneNumber:'9059238412'},
+   {id: '03', username: 'crew1', password: 'crew1', userType: 'crew', phoneNumber:'9059238412'}];
 
   
   this.createAccount = function(user){
