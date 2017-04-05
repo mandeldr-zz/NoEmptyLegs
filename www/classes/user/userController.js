@@ -2,13 +2,13 @@ angular.module('user.controller', [])
 
 .controller('UserCtrl', function($scope, $stateParams, $rootScope, $location, userService) {
   //user schema
-  var user = {id: '', username: '', password: '', userType: ''};
+  var user = {id: '', username: '', password: '', userType: '', number: '2894005444'};
   //owner
-  var owner = {id: '01', username: 'owner1', password: 'owner1', userType: 'owner'};
+  var owner = {id: '01', username: 'owner1', password: 'owner1', userType: 'owner', number: '2894005444'};
   //customer
-  var customer = {id: '02', username: 'customer1', password: 'customer1', userType: 'customer'};
+  var customer = {id: '02', username: 'customer1', password: 'customer1', userType: 'customer', number: '2894005444'};
   //crew
-  var crew = {id: '03', username: 'crew1', password: 'crew1', userType: 'crew'};
+  var crew = {id: '03', username: 'crew1', password: 'crew1', userType: 'crew', number: '2894005444'};
   //user list
   var users = {owner, customer, crew};
 

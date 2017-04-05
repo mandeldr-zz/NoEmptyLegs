@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; img-src 'self' data: *">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
@@ -24,6 +25,7 @@
     <script src="lib/angular-material/angular-aria.min.js"></script>
     <script src="lib/angular-material/angular-messages.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
     <!-- Angular Material Library -->
     <script src="lib/angular-material/angular-material.min.js"></script>

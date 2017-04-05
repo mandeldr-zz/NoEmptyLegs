@@ -29,7 +29,7 @@
         <md-card-content>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-primary" ng-click="book(flight.id)" style="background-color: green; margin: 20px">Book Me!</md-button>
+          <md-button class="md-raised md-primary" ng-disabled="flight.bookingID != null" ng-click="book(ev, flight.id)" style="background-color: green; margin: 20px">{{flight.bookingID == null ? 'Book Me!' : 'Booked!'}}</md-button>
         </md-card-actions>
       </md-card>
       </li>

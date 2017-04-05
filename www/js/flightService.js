@@ -1,7 +1,7 @@
 angular.module('flight.service', [])
 
 .service('flightFilter', function(Flights) {
-    this.availableFlights = Flights.all();
+    this.availableFlights = [];
 
     this.setAvailableFlights = function(flights){
       this.availableFlights = flights;
@@ -182,7 +182,14 @@ angular.module('flight.service', [])
   this.addFlightCrew = function(flight){
     for(var i = 0; i < this.flights.length; i++){
       if(this.flights[i].id == flight.id){
-        this.flights[i] = flight;
+        this.flights[i].flightCrew = true;
+      }
+    }
+  }
+  this.bookFlight = function(flight){
+    for(var i = 0; i < this.flights.length; i++){
+      if(this.flights[i].id == flight.id){
+        this.flights[i].bookingID = flight.id;
       }
     }
   }

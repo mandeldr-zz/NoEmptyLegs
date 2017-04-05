@@ -6,7 +6,7 @@ angular.module('flightCrew.controller', [])
   $scope.newFlights = [];
 
   for (var i = 0; i < $scope.flights.length; i++){
-    if ($scope.flights[i].flightCrew == false){
+    if ($scope.flights[i].flightCrew == false || $scope.flights[i].flightCrew == undefined){
         $scope.newFlights.push($scope.flights[i]);
         console.log($scope.flights[i]);
     }
@@ -25,7 +25,7 @@ angular.module('flightCrew.controller', [])
           .ok('Confirm')
           .cancel('Cancel');
           $mdDialog.show(confirm).then(function() {
-    $scope.flights[flightID].flightCrew = true;
+    Flights.addFlightCrew(selectedFlight);
   }, function() {
     $scope.status = 'You decided to keep your debt.';
   })
