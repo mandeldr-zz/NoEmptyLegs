@@ -1,39 +1,31 @@
 angular.module('user.services', [])
 
-.service('userService', function($location, $mdDialog) {
+.service('userService', function($location, $mdDialog, Users) {
 
-    var userList = [];
-
-    var owner = {id: '01', username: 'owner1', password: 'owner1', userType: 'owner'};
-    //customer
-    var customer = {id: '02', username: 'customer1', password: 'customer1', userType: 'customer'};
-    //crew
-    var crew = {id: '03', username: 'crew1', password: 'crew1', userType: 'crew'};
-
-    userList.push(owner);
-    userList.push(customer);
-    userList.push(crew);
-
-    this.user = null;
+    this.userList = [];
+    this.user = {};
 
     this.login = function(username, password){
-      for (var i in userList){
-        try{
-          if(userList[i].username == username && userList[i].password == password){
+
+      var users = Users.all();
+      for (var i = 0; i < users.length; i++){
+          if(users[i].username == username && users[i].password == password){
             console.log("Authenticated");
-            this.setUser(userList[i]);
+            this.setUser(users[i]);
             return true;
           }
-        }
-        catch(err) {
-        }
+      }
     }
+
+    this.setUser = function(user){
+      this.user = user;
     }
 
     this.createAccount = function(user, ev){
         if(user.password == user.passwordVerified){
-          userList.push(user);
-          console.log(userList);
+          Users.createAccount(user);
+          this.login(user.username, user.password);
+          console.log(this.userList);
           $location.path('/home');
         }else{
             var alert = $mdDialog.show(
@@ -45,25 +37,23 @@ angular.module('user.services', [])
                 .ariaLabel('Alert Dialog Demo')
                 .ok('Got it!')
                 .targetEvent(ev)
-      );
-        }
-        
+          );
+        }  
     }
+})
 
-    this.users = function(){
-      return userList;
-    }
+.service('Users', function() {
+  // Some user data
+  this.users = [{id: '01', username: 'owner1', password: 'owner1', userType: 'owner'},
+   {id: '02', username: 'customer1', password: 'customer1', userType: 'customer'},
+   {id: '03', username: 'crew1', password: 'crew1', userType: 'crew'}];
 
-    this.signOut = function(){
-
-    }
-
-    this.setUser = function(user){
-      this.user = user;
-    }
-
-    this.getUser = function(){
-      return this.user;
-    }
-
+  
+  this.createAccount = function(user){
+      this.users.push(user);
+      console.log(user);
+  }
+  this.all = function() {
+    return (this.users);
+  }
 });

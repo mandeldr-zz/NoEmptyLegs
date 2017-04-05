@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'offerServices.controller', 'ngCordova'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'offerServices.controller', 'booking.controller','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -33,6 +33,7 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.co
   $stateProvider
 
     .state('login', {
+    cache: true,
     url: '/login',
     templateUrl: 'classes/user/login.html',
     controller: 'UserCtrl'
@@ -73,6 +74,12 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.co
       url:'/offerFlightCrew',
       templateUrl: 'classes/offerFlightCrew/offerFlightCrew.html',
       controller: 'offerFlightCrewCtrl'
+  })
+    .state('booking', {
+      cache: false,
+      url:'/booking',
+      templateUrl: 'classes/booking/booking.html',
+      controller: 'BookingCtrl'
   })
     .state('offerServices', {
       cache: false,

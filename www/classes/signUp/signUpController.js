@@ -6,7 +6,8 @@ angular.module('signUp.controller', [])
   	title: '', 
   	firstName: '', 
   	lastName: '', 
-  	email: '', 
+  	email: '',
+    phoneNumber: '', 
   	username: '', 
   	password: '',
   	passwordVerified: ''};
