@@ -18,7 +18,6 @@ angular.module('user.controller', [])
               $scope.user.password = password;
             }
             if(userService.login(username, password) == true){
-              console.log("Hello")
               $location.path('/home');
             }
   

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'offerServices.controller', 'booking.controller','ngCordova'])
+angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.controller', 'home.controller', 'findatrip.controller', 'signUp.controller', 'availableflights.controller', 'user.services', 'registration.controller', 'flightCrew.controller', 'notifications.controller', 'offerServices.controller', 'booking.controller','ngCordova', 'mcwebb.twilio'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,7 +24,12 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.co
 })
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, TwilioProvider) {
+
+  TwilioProvider.setCredentials({
+    accountSid: 'AC4d23be8ee32fd2c384d4d309e08e976f',
+    authToken: 'bcf3ed28b3b0d47319029d20cd33d411'
+  });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -50,6 +55,12 @@ angular.module('noemptylegs', ['ionic', 'ngMaterial', 'flight.service', 'user.co
     url: '/availableflights',
     templateUrl: 'classes/findatrip/availableFlights.html',
     controller: 'AvailCtrl'
+  })
+    .state('notifications', {
+    cache: false,
+    url: '/notifications',
+    templateUrl: 'classes/notifications/notifications.html',
+    controller: 'NotificationCtrl'
   })
     .state('home', {
     cache: false,

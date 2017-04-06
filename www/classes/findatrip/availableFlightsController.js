@@ -1,6 +1,6 @@
 angular.module('availableflights.controller', [])
 
-.controller('AvailCtrl', function($scope, $stateParams, $rootScope, $location, $http, $timeout, $q, $log, $mdDialog, flightFilter, $cordovaSms, $ionicPlatform, Flights, userService) {
+.controller('AvailCtrl', function($scope, Twilio, $stateParams, $rootScope, $location, $http, $timeout, $q, $log, $mdDialog, flightFilter, Flights, userService) {
 
   $scope.flights = flightFilter.getAvailableFlights();
   $scope.flightList = Flights.all();
@@ -27,37 +27,40 @@ angular.module('availableflights.controller', [])
           .cancel('Cancel');
           $mdDialog.show(confirm).then(function() {
     Flights.bookFlight(selectedFlight);
-    $scope.sendSMS($scope.flightList[flightID].bookingID);
+    $scope.submit($scope.flightList[flightID]);
   }, function() {
     $scope.status = 'You decided to keep your debt.';
   });
 
   }
- 
-  $ionicPlatform.ready(function () {
- 
-    var options = {
-      replaceLineBreaks: false, // true to replace \n by a new line, false by default
-      android: {
-        intent: '' // send SMS with the native android SMS messaging
-          //intent: '' // send SMS without open any other app
-          //intent: 'INTENT' // send SMS inside a default SMS app
-      }
-    };
- 
-    $scope.sendSMS = function(msg) {
- 
-      $cordovaSms
-        .send(userService.getUser().phoneNumber, 'This is your flight ID ' + msg, options)
-        .then(function() {
-          alert('Success');
-          // Success! SMS was sent
-        }, function(error) {
-          alert('Error');
-          // An error occurred
-        });
-    }
-  });
 
+  $scope.submit = function (msg) {
+
+    if(userService.getUser().receiveNotifications == true){
+
+    var body = 'You have successfully booked a flight!' + "\n"
+      + 'Plane Type: ' + msg.planeType + "\n"
+      + 'Capacity: ' + msg.capacity + "\n"
+      + 'Cost: ' + msg.cost + "\n"
+      + 'Departure Airport: ' + msg.departureAirport + "\n"
+      + 'Departure Date: ' + msg.departureDate + "\n"
+      + 'Destination Airport: ' + msg.destinationAirport + "\n"
+      + 'In Flight Service: ' + msg.flightCrew + "\n"
+      + 'BookingID: ' + msg.bookingID;
+
+
+    Twilio.create('Messages', {
+      From: '+12898135967',
+      To: '+1' + userService.getUser().phoneNumber,
+      Body: body
+    })
+    .success(function (data, status, headers, config) {
+      // Success - do something
+    })
+    .error(function (data, status, headers, config) {
+      console.log(data);
+    });
+  }
+};
 
 });

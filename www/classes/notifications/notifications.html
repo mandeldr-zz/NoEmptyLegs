@@ -1,0 +1,22 @@
+<ion-view view-title="" hide-back-button="true">
+  <div style="top: 0px; margin-left: 0px; width: calc(100% + 20px);">
+  	<img src="img/blurred.jpg" style="position: absolute; display: block; width: 100%; height: 100%">
+  </div>
+  <ion-nav-bar class="bar-clear">
+
+  </ion-nav-bar>
+  <ion-content scroll="true">
+    <div style="text-align: center; padding: 15px 15px 15px 15px;">
+                    <i class="icon ion-alert-circled" style="font-size: 60px; color: white; margin-top: 20%;"></i>
+                    <p style="color: white; margin-top: 5%; font-size: 20px;">My Alerts</p>
+                </div>
+    <div style="padding-top: 20%"></div>
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="receiveNotifications" ng-change="toggleNotifications()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toggle to receive push notifications        
+    </md-switch>
+   </div>
+  </ion-content>
+</ion-view>

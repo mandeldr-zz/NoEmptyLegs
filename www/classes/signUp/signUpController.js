@@ -10,7 +10,8 @@ angular.module('signUp.controller', [])
     phoneNumber: '', 
   	username: '', 
   	password: '',
-  	passwordVerified: ''};
+  	passwordVerified: '',
+    receiveNotifications: false};
 
   $scope.userList = [];
 
