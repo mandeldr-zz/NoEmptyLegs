@@ -9,22 +9,75 @@
     <div style="text-align: center; padding: 15px 15px 15px 15px;">
                     <i class="icon ion-ios-bookmarks" style="font-size: 60px; color: white; margin-top: 20%;"></i>
                     <p style="color: white; margin-top: 5%; font-size: 20px;">Booking</p>
-                </div>
-    <div style="padding-top: 10%"></div>
-    <div style="text-align: center; padding-top: 5%">
-      <md-button class="md-raised md-primary" style="background-color: white; color: black" ng-href="#/registerFlight">Confirm Trip</md-button>
     </div>
-    <div style="padding-top: 10%"></div>
-    <div style="text-align: center; padding-top: 5%">
-      <md-button class="md-raised md-primary" style="background-color: white; color: black" ng-href="#/registerFlight">Cancel Trip</md-button>
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="confirm" ng-change="toggleConfirm()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm a Trip       
+    </md-switch>
+   </div>
+    <div ng-show="confirm" style="text-align: center; padding-top: 5%">
+    <div>
+      <md-input-container>
+        <label>Enter BookingID</label>
+        <input ng-model="confirmID">
+      </md-input-container>
     </div>
-    <div style="padding-top: 10%"></div>
-    <div style="text-align: center; padding-top: 5%">
-      <md-button class="md-raised md-primary" style="background-color: white; color: black" ng-href="#/registerFlight">Cancel Plane</md-button>
+      <md-button ng-click="confirmTrip(ev, confirmID)" class="md-raised md-primary" style="background-color: white; color: black">Confirm Trip</md-button>
     </div>
-    <div style="padding-top: 10%"></div>
-    <div style="text-align: center; padding-top: 5%">
-      <md-button class="md-raised md-primary" style="background-color: white; color: black" ng-href="#/offerFlightCrew">Cancel Flight Crew</md-button>
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="cancelTrip" ng-change="toggleCancelTrip()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancel a Trip       
+    </md-switch>
+   </div>
+    <div ng-show="cancelTrip" style="text-align: center; padding-top: 5%">
+    <div>
+      <md-input-container>
+        <label>Enter BookingID</label>
+        <input ng-model="cancelID">
+      </md-input-container>
     </div>
+      <md-button ng-click="cancelATrip(ev, cancelID)" class="md-raised md-primary" style="background-color: white; color: black">Cancel Trip</md-button>
+    </div>
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="cancelPlane" ng-change="toggleCancelPlane()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancel Plane       
+    </md-switch>
+   </div>
+    <div ng-show="cancelPlane" style="text-align: center; padding-top: 5%">
+    <div>
+      <md-input-container>
+        <label>Enter BookingID</label>
+        <input ng-model="cancelPlaneID">
+      </md-input-container>
+    </div>
+      <md-button ng-click="cancelAPlane(ev, cancelPlaneID)" class="md-raised md-primary" style="background-color: white; color: black">Cancel Plane</md-button>
+    </div>
+
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;">
+    <md-switch ng-model="cancelFlightCrew" ng-change="toggleCancelFlightCrew()" class="md-primary" style="direction: rtl; color: white; margin-top: 10%;" md-no-ink aria-label="Switch No Ink">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancel Flight Crew       
+    </md-switch>
+   </div>
+    <div ng-show="cancelFlightCrew" style="text-align: center; padding-top: 5%">
+    <div>
+      <md-input-container>
+        <label>Enter BookingID</label>
+        <input ng-model="cancelCrew">
+      </md-input-container>
+    </div>
+      <md-button ng-click="cancelAFlightCrew(ev, cancelCrew)" class="md-raised md-primary" style="background-color: white; color: black">Cancel Flight Crew</md-button>
+    </div>
+
   </ion-content>
 </ion-view>

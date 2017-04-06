@@ -169,10 +169,10 @@ angular.module('flight.service', [])
     this.flights = flights;
   }
   this.remove = function(flight) {
-    this.flights.splice(flights.indexOf(flight), 1);
+    this.flights.splice(this.flights.indexOf(flight), 1);
   }
   this.get = function(flightId) {
-    for (var i = 0; i < flights.length; i++) {
+    for (var i = 0; i < this.flights.length; i++) {
       if (this.flights[i].id === parseInt(flightId)) {
         return this.flights[i];
       }
@@ -186,10 +186,24 @@ angular.module('flight.service', [])
       }
     }
   }
+  this.cancelFlightCrew = function(flight){
+    for(var i = 0; i < this.flights.length; i++){
+      if(this.flights[i].id == flight.id){
+        this.flights[i].flightCrew = false;
+      }
+    }
+  }
   this.bookFlight = function(flight){
     for(var i = 0; i < this.flights.length; i++){
       if(this.flights[i].id == flight.id){
         this.flights[i].bookingID = flight.id;
+      }
+    }
+  }
+  this.cancelFlight = function(flightid){
+    for(var i = 0; i < this.flights.length; i++){
+      if(this.flights[i].id == flightid){
+        this.flights[i].bookingID = null;
       }
     }
   }
